@@ -27,7 +27,7 @@ function getGuidePage(_x) {
 
 function _getGuidePage() {
   _getGuidePage = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(countryId) {
-    var data, _data$catalogue, dataCatalogue, catalogue;
+    var data, _data$catalogue, dataCatalogue, _ref, _ref2, _ref2$, dataSport, catalogue, sport;
 
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
@@ -43,21 +43,34 @@ function _getGuidePage() {
           case 2:
             data = _context.sent;
             _data$catalogue = data.catalogue, dataCatalogue = _data$catalogue === void 0 ? {} : _data$catalogue;
+            _ref = (data === null || data === void 0 ? void 0 : data.sport) || [], _ref2 = _slicedToArray(_ref, 1), _ref2$ = _ref2[0], dataSport = _ref2$ === void 0 ? {} : _ref2$;
             catalogue = [];
-            dataCatalogue && Object.entries(dataCatalogue).forEach(function (_ref) {
-              var _ref2 = _slicedToArray(_ref, 2),
-                  category = _ref2[0],
-                  isExist = _ref2[1];
+            sport = [];
+            dataCatalogue && Object.entries(dataCatalogue).forEach(function (_ref3) {
+              var _ref4 = _slicedToArray(_ref3, 2),
+                  category = _ref4[0],
+                  isExist = _ref4[1];
 
               catalogue.push({
                 category: category,
-                isExist: Boolean(isExist)
+                isExist: Boolean(Number(isExist))
+              });
+            });
+            dataSport && Object.entries(dataSport).forEach(function (_ref5) {
+              var _ref6 = _slicedToArray(_ref5, 2),
+                  category = _ref6[0],
+                  isExist = _ref6[1];
+
+              sport.push({
+                category: category,
+                isExist: Boolean(Number(isExist))
               });
             });
             data.catalogue = catalogue;
+            data.sport = sport;
             return _context.abrupt("return", data);
 
-          case 8:
+          case 12:
           case "end":
             return _context.stop();
         }
