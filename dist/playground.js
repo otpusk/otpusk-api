@@ -12,7 +12,7 @@ function main() {
 
 function _main() {
   _main = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var guidePage, countries;
+    var guidePage;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -23,14 +23,8 @@ function _main() {
           case 2:
             guidePage = _context.sent;
             console.log(guidePage);
-            _context.next = 6;
-            return (0, _index.getCountries)();
 
-          case 6:
-            countries = _context.sent;
-            console.log(countries);
-
-          case 8:
+          case 4:
           case "end":
             return _context.stop();
         }
