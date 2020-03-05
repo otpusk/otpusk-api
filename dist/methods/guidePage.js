@@ -9,13 +9,7 @@ var _config = require("../config");
 
 var _fn = require("../fn");
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
-
-function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+var _parsers = require("../parsers");
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -27,8 +21,7 @@ function getGuidePage(_x) {
 
 function _getGuidePage() {
   _getGuidePage = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(countryId) {
-    var data, _data$catalogue, dataCatalogue, _ref, _ref2, _ref2$, dataSport, catalogue, sport;
-
+    var data;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -42,35 +35,11 @@ function _getGuidePage() {
 
           case 2:
             data = _context.sent;
-            _data$catalogue = data.catalogue, dataCatalogue = _data$catalogue === void 0 ? {} : _data$catalogue;
-            _ref = (data === null || data === void 0 ? void 0 : data.sport) || [], _ref2 = _slicedToArray(_ref, 1), _ref2$ = _ref2[0], dataSport = _ref2$ === void 0 ? {} : _ref2$;
-            catalogue = [];
-            sport = [];
-            dataCatalogue && Object.entries(dataCatalogue).forEach(function (_ref3) {
-              var _ref4 = _slicedToArray(_ref3, 2),
-                  category = _ref4[0],
-                  isExist = _ref4[1];
-
-              catalogue.push({
-                category: category,
-                isExist: Boolean(Number(isExist))
-              });
-            });
-            dataSport && Object.entries(dataSport).forEach(function (_ref5) {
-              var _ref6 = _slicedToArray(_ref5, 2),
-                  category = _ref6[0],
-                  isExist = _ref6[1];
-
-              sport.push({
-                category: category,
-                isExist: Boolean(Number(isExist))
-              });
-            });
-            data.catalogue = catalogue;
-            data.sport = sport;
+            data.catalogue = (0, _parsers.parseCatalogueTours)(data);
+            data.sport = (0, _parsers.parseSportTours)(data);
             return _context.abrupt("return", data);
 
-          case 12:
+          case 6:
           case "end":
             return _context.stop();
         }

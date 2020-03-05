@@ -22,7 +22,7 @@ function _main() {
 
           case 2:
             guidePage = _context.sent;
-            console.log(guidePage);
+            console.log(guidePage.monthly);
 
           case 4:
           case "end":

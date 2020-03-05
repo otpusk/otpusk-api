@@ -5,7 +5,7 @@ import {
 async function main () {
     const guidePage = await getGuidePage(13);
 
-    console.log(guidePage);
+    console.log(guidePage.monthly);
 }
 
 main();
