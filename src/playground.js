@@ -3,9 +3,9 @@ import {
 } from './index';
 
 async function main () {
-    const guidePage = await getGuidePage(13);
+    const guidePage = await getGuidePage(4);
 
-    console.log(guidePage.monthly);
+    console.log(guidePage);
 }
 
 main();

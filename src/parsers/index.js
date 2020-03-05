@@ -30,3 +30,18 @@ export const parseCatalogueTours = (data) => {
 
     return catalogue;
 };
+
+export const parseBestHotels = (data) => {
+    const { bestHotels : dataBestHotels = {}} = data;
+    const bestHotels = [];
+
+    if (dataBestHotels) {
+        Object.values(dataBestHotels).forEach((row) => {
+            if (row.length) {
+                bestHotels.push(row);
+            }
+        });
+    }
+
+    return bestHotels;
+};

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.parseCatalogueTours = exports.parseSportTours = void 0;
+exports.parseBestHotels = exports.parseCatalogueTours = exports.parseSportTours = void 0;
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
@@ -61,3 +61,21 @@ var parseCatalogueTours = function parseCatalogueTours(data) {
 };
 
 exports.parseCatalogueTours = parseCatalogueTours;
+
+var parseBestHotels = function parseBestHotels(data) {
+  var _data$bestHotels = data.bestHotels,
+      dataBestHotels = _data$bestHotels === void 0 ? {} : _data$bestHotels;
+  var bestHotels = [];
+
+  if (dataBestHotels) {
+    Object.values(dataBestHotels).forEach(function (row) {
+      if (row.length) {
+        bestHotels.push(row);
+      }
+    });
+  }
+
+  return bestHotels;
+};
+
+exports.parseBestHotels = parseBestHotels;
