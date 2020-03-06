@@ -15,7 +15,23 @@ Object.defineProperty(exports, "getCountries", {
     return _countries.getCountries;
   }
 });
+Object.defineProperty(exports, "getMainpage", {
+  enumerable: true,
+  get: function get() {
+    return _mainpage.getMainpage;
+  }
+});
+Object.defineProperty(exports, "getCities", {
+  enumerable: true,
+  get: function get() {
+    return _cities.getCities;
+  }
+});
 
 var _guidePage = require("./methods/guidePage");
 
 var _countries = require("./methods/countries");
+
+var _mainpage = require("./methods/mainpage");
+
+var _cities = require("./methods/cities");
