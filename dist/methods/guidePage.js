@@ -38,9 +38,10 @@ function _getGuidePage() {
             data.catalogue = (0, _parsers.parseCatalogueTours)(data);
             data.sport = (0, _parsers.parseSportTours)(data);
             data.bestHotels = (0, _parsers.parseBestHotels)(data);
+            data.excursions = (0, _parsers.parseExcursions)(data);
             return _context.abrupt("return", data);
 
-          case 7:
+          case 8:
           case "end":
             return _context.stop();
         }

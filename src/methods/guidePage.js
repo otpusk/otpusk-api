@@ -3,7 +3,8 @@ import { call } from '../fn';
 import {
     parseCatalogueTours,
     parseSportTours,
-    parseBestHotels
+    parseBestHotels,
+    parseExcursions
 } from '../parsers';
 
 export async function getGuidePage (countryId) {
@@ -12,6 +13,7 @@ export async function getGuidePage (countryId) {
     data.catalogue = parseCatalogueTours(data);
     data.sport = parseSportTours(data);
     data.bestHotels = parseBestHotels(data);
+    data.excursions = parseExcursions(data);
 
     return data;
 }

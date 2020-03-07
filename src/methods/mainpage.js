@@ -3,7 +3,8 @@ import { call } from '../fn';
 import {
     parseCatalogueTours,
     parseSportTours,
-    parseBestHotels
+    parseBestHotels,
+    parseExcursions
 } from '../parsers';
 
 export async function getMainpage (props) {
@@ -13,6 +14,7 @@ export async function getMainpage (props) {
     data.catalogue = parseCatalogueTours(data);
     data.sport = parseSportTours(data);
     data.bestHotels = parseBestHotels(data);
+    data.excursions = parseExcursions(data);
 
     return data;
 }

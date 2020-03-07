@@ -1,11 +1,9 @@
 import {
-    getCities
+    getGuidePage
 } from './index';
 
 async function main () {
-    const cities = await getCities({ country: 3 });
-
-    console.log(cities);
+    await getGuidePage(13);
 }
 
 main();

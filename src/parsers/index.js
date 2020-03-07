@@ -15,7 +15,7 @@ export const parseSportTours = (data) => {
 };
 
 export const parseCatalogueTours = (data) => {
-    const { catalogue : dataCatalogue = {}} = data;
+    const { catalogue: dataCatalogue = {}} = data;
 
     const catalogue = [];
 
@@ -32,7 +32,7 @@ export const parseCatalogueTours = (data) => {
 };
 
 export const parseBestHotels = (data) => {
-    const { bestHotels : dataBestHotels = {}} = data;
+    const { bestHotels: dataBestHotels = {}} = data;
     const bestHotels = [];
 
     if (dataBestHotels) {
@@ -44,4 +44,43 @@ export const parseBestHotels = (data) => {
     }
 
     return bestHotels;
+};
+
+export const parseExcursions = (data) => {
+    const { excursions: dataExcursions = []} = data;
+
+    if (dataExcursions) {
+        return dataExcursions.map((excursion) => {
+            const {
+                id : excursionId = null,
+                name: title = '',
+                length = null,
+                transport = null,
+                deptCity: departureCity = '',
+                uah : price = null,
+                cities,
+                type,
+                desktop_gallery : coverPhoto,
+                titleTranslit = '',
+            } = excursion;
+
+            const destinations = cities.split(' - ');
+            const [mainCategory] = type.split(', ');
+
+            return {
+                excursionId,
+                title,
+                titleTranslit,
+                length:       length && Number(length),
+                transport,
+                departureCity,
+                price:        price && Math.round(Number(price)),
+                coverPhoto,
+                destinations,
+                mainCategory: { name: mainCategory, icon: null },
+            };
+        });
+    }
+
+    return [];
 };

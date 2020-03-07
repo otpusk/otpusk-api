@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.parseBestHotels = exports.parseCatalogueTours = exports.parseSportTours = void 0;
+exports.parseExcursions = exports.parseBestHotels = exports.parseCatalogueTours = exports.parseSportTours = void 0;
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
@@ -79,3 +79,55 @@ var parseBestHotels = function parseBestHotels(data) {
 };
 
 exports.parseBestHotels = parseBestHotels;
+
+var parseExcursions = function parseExcursions(data) {
+  var _data$excursions = data.excursions,
+      dataExcursions = _data$excursions === void 0 ? [] : _data$excursions;
+
+  if (dataExcursions) {
+    return dataExcursions.map(function (excursion) {
+      var _excursion$id = excursion.id,
+          excursionId = _excursion$id === void 0 ? null : _excursion$id,
+          _excursion$name = excursion.name,
+          title = _excursion$name === void 0 ? '' : _excursion$name,
+          _excursion$length = excursion.length,
+          length = _excursion$length === void 0 ? null : _excursion$length,
+          _excursion$transport = excursion.transport,
+          transport = _excursion$transport === void 0 ? null : _excursion$transport,
+          _excursion$deptCity = excursion.deptCity,
+          departureCity = _excursion$deptCity === void 0 ? '' : _excursion$deptCity,
+          _excursion$uah = excursion.uah,
+          price = _excursion$uah === void 0 ? null : _excursion$uah,
+          cities = excursion.cities,
+          type = excursion.type,
+          coverPhoto = excursion.desktop_gallery,
+          _excursion$titleTrans = excursion.titleTranslit,
+          titleTranslit = _excursion$titleTrans === void 0 ? '' : _excursion$titleTrans;
+      var destinations = cities.split(' - ');
+
+      var _type$split = type.split(', '),
+          _type$split2 = _slicedToArray(_type$split, 1),
+          mainCategory = _type$split2[0];
+
+      return {
+        excursionId: excursionId,
+        title: title,
+        titleTranslit: titleTranslit,
+        length: length && Number(length),
+        transport: transport,
+        departureCity: departureCity,
+        price: price && Math.round(Number(price)),
+        coverPhoto: coverPhoto,
+        destinations: destinations,
+        mainCategory: {
+          name: mainCategory,
+          icon: null
+        }
+      };
+    });
+  }
+
+  return [];
+};
+
+exports.parseExcursions = parseExcursions;
