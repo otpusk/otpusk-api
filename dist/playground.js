@@ -12,14 +12,23 @@ function main() {
 
 function _main() {
   _main = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+    var mainpage;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return (0, _index.getGuidePage)(13);
+            return (0, _index.getMainpage)({
+              country: 'bulgaria',
+              budget: 400,
+              currency: 'eur'
+            });
 
           case 2:
+            mainpage = _context.sent;
+            console.log(mainpage);
+
+          case 4:
           case "end":
             return _context.stop();
         }

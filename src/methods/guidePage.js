@@ -7,8 +7,8 @@ import {
     parseExcursions
 } from '../parsers';
 
-export async function getGuidePage (countryId) {
-    const data = await call(endpoints.guidePage, { query: { country: countryId }});
+export async function getGuidePage (countryAlias) {
+    const data = await call(`${endpoints.guidePage}/${countryAlias}`);
 
     data.catalogue = parseCatalogueTours(data);
     data.sport = parseSportTours(data);

@@ -9,7 +9,15 @@ import {
 
 export async function getMainpage (props) {
     // props = { country, city, month, season, budget (required), currency (require) }
-    const data = await call(endpoints.guidePage, { query: props });
+    const { country, city = '', ...other }  = props;
+
+    let data = null;
+
+    if (country && city) {
+        data = await call(`${endpoints.mainpage}/${country}/${city}`, { query: other });
+    } else {
+        data = await call(`${endpoints.mainpage}/${country}`, { query: other });
+    }
 
     data.catalogue = parseCatalogueTours(data);
     data.sport = parseSportTours(data);

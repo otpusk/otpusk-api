@@ -1,9 +1,11 @@
 import {
-    getGuidePage
+    getMainpage
 } from './index';
 
 async function main () {
-    await getGuidePage(13);
+    const mainpage = await getMainpage({ country: 'bulgaria', budget: 400, currency: 'eur' });
+
+    console.log(mainpage);
 }
 
 main();
