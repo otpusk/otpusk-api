@@ -20,18 +20,14 @@ function getGuidePage(_x) {
 }
 
 function _getGuidePage() {
-  _getGuidePage = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(countryId) {
+  _getGuidePage = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(countryAlias) {
     var data;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return (0, _fn.call)(_config.endpoints.guidePage, {
-              query: {
-                country: countryId
-              }
-            });
+            return (0, _fn.call)("".concat(_config.endpoints.guidePage, "/").concat(countryAlias));
 
           case 2:
             data = _context.sent;

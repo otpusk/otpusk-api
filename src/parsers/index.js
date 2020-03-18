@@ -57,27 +57,29 @@ export const parseExcursions = (data) => {
                 length = null,
                 transport = null,
                 deptCity: departureCity = '',
+                deptCityRd: departureCityRd = '',
                 uah : price = null,
                 cities,
                 type,
                 desktop_gallery : coverPhoto,
+                mainType: mainCategory,
                 titleTranslit = '',
             } = excursion;
 
             const destinations = cities.split(' - ');
-            const [mainCategory] = type.split(', ');
 
             return {
                 excursionId,
                 title,
                 titleTranslit,
-                length:       length && Number(length),
+                length: length && Number(length),
                 transport,
                 departureCity,
-                price:        price && Math.round(Number(price)),
+                departureCityRd,
+                price:  price && Math.round(Number(price)),
                 coverPhoto,
                 destinations,
-                mainCategory: { name: mainCategory, icon: null },
+                mainCategory,
             };
         });
     }
