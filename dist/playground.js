@@ -19,7 +19,7 @@ function _main() {
           case 0:
             _context.next = 2;
             return (0, _index.getMainpage)({
-              country: 'bulgaria',
+              country: 'italy',
               budget: 400,
               currency: 'eur'
             });

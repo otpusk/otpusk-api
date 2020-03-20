@@ -96,19 +96,20 @@ var parseExcursions = function parseExcursions(data) {
           transport = _excursion$transport === void 0 ? null : _excursion$transport,
           _excursion$deptCity = excursion.deptCity,
           departureCity = _excursion$deptCity === void 0 ? '' : _excursion$deptCity,
+          _excursion$deptCityRd = excursion.deptCityRd,
+          departureCityRd = _excursion$deptCityRd === void 0 ? '' : _excursion$deptCityRd,
           _excursion$uah = excursion.uah,
-          price = _excursion$uah === void 0 ? null : _excursion$uah,
+          uah = _excursion$uah === void 0 ? null : _excursion$uah,
+          _excursion$usd = excursion.usd,
+          usd = _excursion$usd === void 0 ? null : _excursion$usd,
+          _excursion$eur = excursion.eur,
+          eur = _excursion$eur === void 0 ? null : _excursion$eur,
           cities = excursion.cities,
-          type = excursion.type,
           coverPhoto = excursion.desktop_gallery,
+          mainCategory = excursion.mainType,
           _excursion$titleTrans = excursion.titleTranslit,
           titleTranslit = _excursion$titleTrans === void 0 ? '' : _excursion$titleTrans;
       var destinations = cities.split(' - ');
-
-      var _type$split = type.split(', '),
-          _type$split2 = _slicedToArray(_type$split, 1),
-          mainCategory = _type$split2[0];
-
       return {
         excursionId: excursionId,
         title: title,
@@ -116,13 +117,15 @@ var parseExcursions = function parseExcursions(data) {
         length: length && Number(length),
         transport: transport,
         departureCity: departureCity,
-        price: price && Math.round(Number(price)),
+        departureCityRd: departureCityRd,
+        prices: {
+          usd: usd,
+          eur: eur,
+          uah: uah
+        },
         coverPhoto: coverPhoto,
         destinations: destinations,
-        mainCategory: {
-          name: mainCategory,
-          icon: null
-        }
+        mainCategory: mainCategory
       };
     });
   }
