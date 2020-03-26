@@ -11,10 +11,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 var host = _jsCookie["default"].get('excursion-api-host') || 'https://new.otpusk.com/api';
 var endpoints = Object.freeze({
-  mainpage: "".concat(host, "/tours/mainpage"),
+  toursMainPage: "".concat(host, "/tours/mainpage"),
   countries: "".concat(host, "/tours/countries"),
   cities: "".concat(host, "/tours/cities"),
   tourType: "".concat(host, "/tours/tour_type"),
-  guidePage: "".concat(host, "/tours/guide_page")
+  guidePage: "".concat(host, "/tours/guide_page"),
+  // seo meta data
+  toursMainPageMeta: "".concat(host, "/seo/tours/mainpage"),
+  toursMainPageMetaBySeason: "".concat(host, "/seo/tours/mainpage/season"),
+  guidePageMeta: "".concat(host, "/seo/tours/guide_page")
 });
 exports.endpoints = endpoints;
