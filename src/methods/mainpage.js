@@ -4,7 +4,8 @@ import {
     parseCatalogueTours,
     parseSportTours,
     parseBestHotels,
-    parseExcursions
+    parseExcursions,
+    parseTours
 } from '../parsers';
 
 export async function getToursMainpage (props) {
@@ -19,6 +20,12 @@ export async function getToursMainpage (props) {
         data = await call(`${endpoints.toursMainPage}/${country}`, { query: other });
     }
 
+    data.qualityPrice = parseTours(data.qualityPrice);
+    data.cheapest = parseTours(data.cheapest);
+    data.friends = parseTours(data.friends);
+    data.romantic = parseTours(data.romantic);
+    data.family = parseTours(data.family);
+    data.peaceful = parseTours(data.peaceful);
     data.catalogue = parseCatalogueTours(data);
     data.sport = parseSportTours(data);
     data.bestHotels = parseBestHotels(data);

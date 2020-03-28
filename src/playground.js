@@ -1,12 +1,11 @@
 import {
-    getToursMainpageMeta,
-    getGuidePageMeta
+    getGuidePage
 } from './index';
 
 async function main () {
-    const meta = await getToursMainpageMeta({ country: 'italy' });
+    const data = await getGuidePage('italy');
 
-    console.log(meta);
+    console.log(data);
 }
 
 main();

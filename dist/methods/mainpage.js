@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getMainpage = getMainpage;
+exports.getToursMainpage = getToursMainpage;
 
 var _config = require("../config");
 
@@ -19,12 +19,12 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-function getMainpage(_x) {
-  return _getMainpage.apply(this, arguments);
+function getToursMainpage(_x) {
+  return _getToursMainpage.apply(this, arguments);
 }
 
-function _getMainpage() {
-  _getMainpage = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(props) {
+function _getToursMainpage() {
+  _getToursMainpage = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(props) {
     var country, _props$city, city, other, data;
 
     return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -41,7 +41,7 @@ function _getMainpage() {
             }
 
             _context.next = 5;
-            return (0, _fn.call)("".concat(_config.endpoints.mainpage, "/").concat(country, "/").concat(city), {
+            return (0, _fn.call)("".concat(_config.endpoints.toursMainPage, "/").concat(country, "/").concat(city), {
               query: other
             });
 
@@ -52,7 +52,7 @@ function _getMainpage() {
 
           case 8:
             _context.next = 10;
-            return (0, _fn.call)("".concat(_config.endpoints.mainpage, "/").concat(country), {
+            return (0, _fn.call)("".concat(_config.endpoints.toursMainPage, "/").concat(country), {
               query: other
             });
 
@@ -60,18 +60,24 @@ function _getMainpage() {
             data = _context.sent;
 
           case 11:
+            data.qualityPrice = (0, _parsers.parseTours)(data.qualityPrice);
+            data.cheapest = (0, _parsers.parseTours)(data.cheapest);
+            data.friends = (0, _parsers.parseTours)(data.friends);
+            data.romantic = (0, _parsers.parseTours)(data.romantic);
+            data.family = (0, _parsers.parseTours)(data.family);
+            data.peaceful = (0, _parsers.parseTours)(data.peaceful);
             data.catalogue = (0, _parsers.parseCatalogueTours)(data);
             data.sport = (0, _parsers.parseSportTours)(data);
             data.bestHotels = (0, _parsers.parseBestHotels)(data);
             data.excursions = (0, _parsers.parseExcursions)(data);
             return _context.abrupt("return", data);
 
-          case 16:
+          case 22:
           case "end":
             return _context.stop();
         }
       }
     }, _callee);
   }));
-  return _getMainpage.apply(this, arguments);
+  return _getToursMainpage.apply(this, arguments);
 }

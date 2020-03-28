@@ -12,19 +12,17 @@ function main() {
 
 function _main() {
   _main = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var meta;
+    var data;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return (0, _index.getToursMainpageMeta)({
-              country: 'italy'
-            });
+            return (0, _index.getGuidePage)('italy');
 
           case 2:
-            meta = _context.sent;
-            console.log(meta);
+            data = _context.sent;
+            console.log(data);
 
           case 4:
           case "end":

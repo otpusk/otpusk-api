@@ -1,3 +1,5 @@
+import { escapeHtml } from '../helpers';
+
 export const parseSportTours = (data) => {
     const [dataSport = {}] = data?.sport || [];
     const sport = [];
@@ -12,6 +14,10 @@ export const parseSportTours = (data) => {
     }
 
     return sport;
+};
+
+export const parseTours = (tours) => {
+    return tours.map((tour) => ({ ...tour, name: escapeHtml(tour.name) }));
 };
 
 export const parseCatalogueTours = (data) => {
@@ -38,7 +44,7 @@ export const parseBestHotels = (data) => {
     if (dataBestHotels) {
         Object.values(dataBestHotels).forEach((row) => {
             if (row.length) {
-                bestHotels.push(row);
+                bestHotels.push(parseTours(row));
             }
         });
     }
