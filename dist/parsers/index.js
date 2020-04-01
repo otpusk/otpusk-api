@@ -48,6 +48,10 @@ var parseSportTours = function parseSportTours(data) {
 exports.parseSportTours = parseSportTours;
 
 var parseTours = function parseTours(tours) {
+  if (!tours) {
+    return [];
+  }
+
   return tours.map(function (tour) {
     return _objectSpread({}, tour, {
       name: (0, _helpers.escapeHtml)(tour.name)

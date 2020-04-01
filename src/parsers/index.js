@@ -17,6 +17,10 @@ export const parseSportTours = (data) => {
 };
 
 export const parseTours = (tours) => {
+    if (!tours) {
+        return [];
+    }
+
     return tours.map((tour) => ({ ...tour, name: escapeHtml(tour.name) }));
 };
 
