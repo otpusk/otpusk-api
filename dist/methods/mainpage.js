@@ -60,6 +60,7 @@ function _getToursMainpage() {
             data = _context.sent;
 
           case 11:
+            data.hot = (0, _parsers.parseTours)(data.hot);
             data.qualityPrice = (0, _parsers.parseTours)(data.qualityPrice);
             data.cheapest = (0, _parsers.parseTours)(data.cheapest);
             data.friends = (0, _parsers.parseTours)(data.friends);
@@ -72,7 +73,7 @@ function _getToursMainpage() {
             data.excursions = (0, _parsers.parseExcursions)(data);
             return _context.abrupt("return", data);
 
-          case 22:
+          case 23:
           case "end":
             return _context.stop();
         }
