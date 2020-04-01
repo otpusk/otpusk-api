@@ -70,7 +70,7 @@ export const parseExcursions = (data) => {
                 cities,
                 desktop_gallery : coverPhoto,
                 mainType: mainCategory,
-                titleTranslit = '',
+                translit : titleTranslit = '',
             } = excursion;
 
             const destinations = cities.split(' - ');
