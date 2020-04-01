@@ -31,6 +31,7 @@ function _getGuidePage() {
 
           case 2:
             data = _context.sent;
+            data.hot = (0, _parsers.parseTours)(data.hot);
             data.qualityPrice = (0, _parsers.parseTours)(data.qualityPrice);
             data.cheapest = (0, _parsers.parseTours)(data.cheapest);
             data.friends = (0, _parsers.parseTours)(data.friends);
@@ -43,7 +44,7 @@ function _getGuidePage() {
             data.excursions = (0, _parsers.parseExcursions)(data);
             return _context.abrupt("return", data);
 
-          case 14:
+          case 15:
           case "end":
             return _context.stop();
         }

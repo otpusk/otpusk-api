@@ -22,9 +22,8 @@ function _main() {
 
           case 2:
             data = _context.sent;
-            console.log(data);
 
-          case 4:
+          case 3:
           case "end":
             return _context.stop();
         }

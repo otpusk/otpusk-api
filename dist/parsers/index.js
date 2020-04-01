@@ -124,10 +124,14 @@ var parseExcursions = function parseExcursions(data) {
           eur = _excursion$eur === void 0 ? null : _excursion$eur,
           cities = excursion.cities,
           coverPhoto = excursion.desktop_gallery,
-          mainCategory = excursion.mainType,
+          mainType = excursion.mainType,
           _excursion$translit = excursion.translit,
           titleTranslit = _excursion$translit === void 0 ? '' : _excursion$translit;
       var destinations = cities.split(' - ');
+      var mainCategory = {
+        name: mainType.name,
+        icon: mainType.iconSmall
+      };
       return {
         excursionId: excursionId,
         title: title,

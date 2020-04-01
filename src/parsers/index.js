@@ -69,11 +69,12 @@ export const parseExcursions = (data) => {
                 eur = null,
                 cities,
                 desktop_gallery : coverPhoto,
-                mainType: mainCategory,
+                mainType,
                 translit : titleTranslit = '',
             } = excursion;
 
             const destinations = cities.split(' - ');
+            const mainCategory = { name: mainType.name, icon: mainType.iconSmall };
 
             return {
                 excursionId,
