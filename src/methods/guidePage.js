@@ -11,6 +11,7 @@ import {
 export async function getGuidePage (countryAlias) {
     const data = await call(`${endpoints.guidePage}/${countryAlias}`);
 
+    data.hot = parseTours(data.hot);
     data.qualityPrice = parseTours(data.qualityPrice);
     data.cheapest = parseTours(data.cheapest);
     data.friends = parseTours(data.friends);

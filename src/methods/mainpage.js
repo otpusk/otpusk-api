@@ -20,6 +20,7 @@ export async function getToursMainpage (props) {
         data = await call(`${endpoints.toursMainPage}/${country}`, { query: other });
     }
 
+    data.hot = parseTours(data.hot);
     data.qualityPrice = parseTours(data.qualityPrice);
     data.cheapest = parseTours(data.cheapest);
     data.friends = parseTours(data.friends);

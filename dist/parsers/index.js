@@ -125,8 +125,8 @@ var parseExcursions = function parseExcursions(data) {
           cities = excursion.cities,
           coverPhoto = excursion.desktop_gallery,
           mainCategory = excursion.mainType,
-          _excursion$titleTrans = excursion.titleTranslit,
-          titleTranslit = _excursion$titleTrans === void 0 ? '' : _excursion$titleTrans;
+          _excursion$translit = excursion.translit,
+          titleTranslit = _excursion$translit === void 0 ? '' : _excursion$translit;
       var destinations = cities.split(' - ');
       return {
         excursionId: excursionId,
