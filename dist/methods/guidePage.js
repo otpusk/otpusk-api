@@ -38,13 +38,15 @@ function _getGuidePage() {
             data.romantic = (0, _parsers.parseTours)(data.romantic);
             data.family = (0, _parsers.parseTours)(data.family);
             data.peaceful = (0, _parsers.parseTours)(data.peaceful);
-            data.catalogue = (0, _parsers.parseCatalogueTours)(data);
-            data.sport = (0, _parsers.parseSportTours)(data);
-            data.bestHotels = (0, _parsers.parseBestHotels)(data);
-            data.excursions = (0, _parsers.parseExcursions)(data);
+            data.catalogue = (0, _parsers.parseCatalogueTours)(data.catalogue);
+            data.sport = (0, _parsers.parseSportTours)(data.sport);
+            data.bestHotels = (0, _parsers.parseBestHotels)(data.bestHotels);
+            data.excursions = (0, _parsers.parseExcursions)(data.excursions);
+            data.months_tours = (0, _parsers.parseSeasonsTours)(data.months_tours);
+            data.seasons_tours = (0, _parsers.parseSeasonsTours)(data.seasons_tours);
             return _context.abrupt("return", data);
 
-          case 15:
+          case 17:
           case "end":
             return _context.stop();
         }

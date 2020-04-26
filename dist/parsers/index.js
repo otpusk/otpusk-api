@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.parseExcursions = exports.parseBestHotels = exports.parseCatalogueTours = exports.parseTours = exports.parseSportTours = void 0;
+exports.parseSeasonsTours = exports.parseExcursions = exports.parseBestHotels = exports.parseCatalogueTours = exports.parseTours = exports.parseSportTours = void 0;
 
 var _helpers = require("../helpers");
 
@@ -21,19 +21,15 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var parseSportTours = function parseSportTours(data) {
-  var _ref = (data === null || data === void 0 ? void 0 : data.sport) || [],
-      _ref2 = _slicedToArray(_ref, 1),
-      _ref2$ = _ref2[0],
-      dataSport = _ref2$ === void 0 ? {} : _ref2$;
-
+var parseSportTours = function parseSportTours() {
+  var dataSport = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var sport = [];
 
   if (dataSport) {
-    Object.entries(dataSport).forEach(function (_ref3) {
-      var _ref4 = _slicedToArray(_ref3, 2),
-          category = _ref4[0],
-          isExist = _ref4[1];
+    Object.entries(dataSport).forEach(function (_ref) {
+      var _ref2 = _slicedToArray(_ref, 2),
+          category = _ref2[0],
+          isExist = _ref2[1];
 
       sport.push({
         category: category,
@@ -61,16 +57,15 @@ var parseTours = function parseTours(tours) {
 
 exports.parseTours = parseTours;
 
-var parseCatalogueTours = function parseCatalogueTours(data) {
-  var _data$catalogue = data.catalogue,
-      dataCatalogue = _data$catalogue === void 0 ? {} : _data$catalogue;
+var parseCatalogueTours = function parseCatalogueTours() {
+  var dataCatalogue = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var catalogue = [];
 
   if (dataCatalogue) {
-    Object.entries(dataCatalogue).forEach(function (_ref5) {
-      var _ref6 = _slicedToArray(_ref5, 2),
-          category = _ref6[0],
-          isExist = _ref6[1];
+    Object.entries(dataCatalogue).forEach(function (_ref3) {
+      var _ref4 = _slicedToArray(_ref3, 2),
+          category = _ref4[0],
+          isExist = _ref4[1];
 
       catalogue.push({
         category: category,
@@ -84,9 +79,8 @@ var parseCatalogueTours = function parseCatalogueTours(data) {
 
 exports.parseCatalogueTours = parseCatalogueTours;
 
-var parseBestHotels = function parseBestHotels(data) {
-  var _data$bestHotels = data.bestHotels,
-      dataBestHotels = _data$bestHotels === void 0 ? {} : _data$bestHotels;
+var parseBestHotels = function parseBestHotels() {
+  var dataBestHotels = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var bestHotels = [];
 
   if (dataBestHotels) {
@@ -102,9 +96,8 @@ var parseBestHotels = function parseBestHotels(data) {
 
 exports.parseBestHotels = parseBestHotels;
 
-var parseExcursions = function parseExcursions(data) {
-  var _data$excursions = data.excursions,
-      dataExcursions = _data$excursions === void 0 ? [] : _data$excursions;
+var parseExcursions = function parseExcursions() {
+  var dataExcursions = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 
   if (dataExcursions) {
     return dataExcursions.map(function (excursion) {
@@ -160,3 +153,21 @@ var parseExcursions = function parseExcursions(data) {
 };
 
 exports.parseExcursions = parseExcursions;
+
+var parseSeasonsTours = function parseSeasonsTours() {
+  var seasonsToursData = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+  if (seasonsToursData) {
+    return Object.entries(seasonsToursData).map(function (_ref5) {
+      var _ref6 = _slicedToArray(_ref5, 2),
+          month = _ref6[0],
+          tours = _ref6[1];
+
+      return _defineProperty({}, month, parseTours(tours));
+    });
+  }
+
+  return [];
+};
+
+exports.parseSeasonsTours = parseSeasonsTours;
