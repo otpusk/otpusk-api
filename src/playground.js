@@ -5,7 +5,7 @@ import {
 async function main () {
     const data = await getGuidePage('italy');
 
-    // console.log(data);
+    console.log(data);
 }
 
 main();

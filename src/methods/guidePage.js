@@ -5,7 +5,8 @@ import {
     parseSportTours,
     parseBestHotels,
     parseExcursions,
-    parseTours
+    parseMonthsTours,
+    parseTours, parseSeasonsTours
 } from '../parsers';
 
 export async function getGuidePage (countryAlias) {
@@ -18,10 +19,12 @@ export async function getGuidePage (countryAlias) {
     data.romantic = parseTours(data.romantic);
     data.family = parseTours(data.family);
     data.peaceful = parseTours(data.peaceful);
-    data.catalogue = parseCatalogueTours(data);
-    data.sport = parseSportTours(data);
-    data.bestHotels = parseBestHotels(data);
-    data.excursions = parseExcursions(data);
+    data.catalogue = parseCatalogueTours(data.catalogue);
+    data.sport = parseSportTours(data.sport);
+    data.bestHotels = parseBestHotels(data.bestHotels);
+    data.excursions = parseExcursions(data.excursions);
+    data.months_tours = parseSeasonsTours(data.months_tours);
+    data.seasons_tours = parseSeasonsTours(data.seasons_tours);
 
     return data;
 }

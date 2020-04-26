@@ -1,7 +1,6 @@
 import { escapeHtml } from '../helpers';
 
-export const parseSportTours = (data) => {
-    const [dataSport = {}] = data?.sport || [];
+export const parseSportTours = (dataSport = {}) => {
     const sport = [];
 
     if (dataSport) {
@@ -24,9 +23,7 @@ export const parseTours = (tours) => {
     return tours.map((tour) => ({ ...tour, name: escapeHtml(tour.name) }));
 };
 
-export const parseCatalogueTours = (data) => {
-    const { catalogue: dataCatalogue = {}} = data;
-
+export const parseCatalogueTours = (dataCatalogue = {}) => {
     const catalogue = [];
 
     if (dataCatalogue) {
@@ -41,8 +38,7 @@ export const parseCatalogueTours = (data) => {
     return catalogue;
 };
 
-export const parseBestHotels = (data) => {
-    const { bestHotels: dataBestHotels = {}} = data;
+export const parseBestHotels = (dataBestHotels = {}) => {
     const bestHotels = [];
 
     if (dataBestHotels) {
@@ -56,9 +52,7 @@ export const parseBestHotels = (data) => {
     return bestHotels;
 };
 
-export const parseExcursions = (data) => {
-    const { excursions: dataExcursions = []} = data;
-
+export const parseExcursions = (dataExcursions = []) => {
     if (dataExcursions) {
         return dataExcursions.map((excursion) => {
             const {
@@ -94,6 +88,15 @@ export const parseExcursions = (data) => {
                 mainCategory,
             };
         });
+    }
+
+    return [];
+};
+
+export const parseSeasonsTours = (seasonsToursData = {}) => {
+    if (seasonsToursData) {
+        return Object.entries(seasonsToursData)
+            .map(([month, tours]) => ({ [month]: parseTours(tours) }));
     }
 
     return [];
