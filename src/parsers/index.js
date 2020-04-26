@@ -1,6 +1,6 @@
 import { escapeHtml } from '../helpers';
 
-export const parseSportTours = (dataSport = {}) => {
+export const parseSportTours = ([dataSport]) => {
     const sport = [];
 
     if (dataSport) {

@@ -21,15 +21,17 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var parseSportTours = function parseSportTours() {
-  var dataSport = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+var parseSportTours = function parseSportTours(_ref) {
+  var _ref2 = _slicedToArray(_ref, 1),
+      dataSport = _ref2[0];
+
   var sport = [];
 
   if (dataSport) {
-    Object.entries(dataSport).forEach(function (_ref) {
-      var _ref2 = _slicedToArray(_ref, 2),
-          category = _ref2[0],
-          isExist = _ref2[1];
+    Object.entries(dataSport).forEach(function (_ref3) {
+      var _ref4 = _slicedToArray(_ref3, 2),
+          category = _ref4[0],
+          isExist = _ref4[1];
 
       sport.push({
         category: category,
@@ -62,10 +64,10 @@ var parseCatalogueTours = function parseCatalogueTours() {
   var catalogue = [];
 
   if (dataCatalogue) {
-    Object.entries(dataCatalogue).forEach(function (_ref3) {
-      var _ref4 = _slicedToArray(_ref3, 2),
-          category = _ref4[0],
-          isExist = _ref4[1];
+    Object.entries(dataCatalogue).forEach(function (_ref5) {
+      var _ref6 = _slicedToArray(_ref5, 2),
+          category = _ref6[0],
+          isExist = _ref6[1];
 
       catalogue.push({
         category: category,
@@ -158,10 +160,10 @@ var parseSeasonsTours = function parseSeasonsTours() {
   var seasonsToursData = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
   if (seasonsToursData) {
-    return Object.entries(seasonsToursData).map(function (_ref5) {
-      var _ref6 = _slicedToArray(_ref5, 2),
-          month = _ref6[0],
-          tours = _ref6[1];
+    return Object.entries(seasonsToursData).map(function (_ref7) {
+      var _ref8 = _slicedToArray(_ref7, 2),
+          month = _ref8[0],
+          tours = _ref8[1];
 
       return _defineProperty({}, month, parseTours(tours));
     });
