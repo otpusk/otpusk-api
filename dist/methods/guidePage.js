@@ -21,16 +21,37 @@ function getGuidePage(_x) {
 
 function _getGuidePage() {
   _getGuidePage = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(countryAlias) {
-    var data;
+    var cityAlias,
+        data,
+        _args = arguments;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.next = 2;
+            cityAlias = _args.length > 1 && _args[1] !== undefined ? _args[1] : '';
+            data = null;
+
+            if (!cityAlias) {
+              _context.next = 8;
+              break;
+            }
+
+            _context.next = 5;
+            return (0, _fn.call)("".concat(_config.endpoints.guidePage, "/").concat(countryAlias, "/").concat(cityAlias));
+
+          case 5:
+            data = _context.sent;
+            _context.next = 11;
+            break;
+
+          case 8:
+            _context.next = 10;
             return (0, _fn.call)("".concat(_config.endpoints.guidePage, "/").concat(countryAlias));
 
-          case 2:
+          case 10:
             data = _context.sent;
+
+          case 11:
             data.hot = (0, _parsers.parseTours)(data.hot);
             data.qualityPrice = (0, _parsers.parseTours)(data.qualityPrice);
             data.cheapest = (0, _parsers.parseTours)(data.cheapest);
@@ -46,7 +67,7 @@ function _getGuidePage() {
             data.seasons_tours = (0, _parsers.parseSeasonsTours)(data.seasons_tours);
             return _context.abrupt("return", data);
 
-          case 17:
+          case 25:
           case "end":
             return _context.stop();
         }

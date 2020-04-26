@@ -5,12 +5,18 @@ import {
     parseSportTours,
     parseBestHotels,
     parseExcursions,
-    parseMonthsTours,
-    parseTours, parseSeasonsTours
+    parseTours,
+    parseSeasonsTours
 } from '../parsers';
 
-export async function getGuidePage (countryAlias) {
-    const data = await call(`${endpoints.guidePage}/${countryAlias}`);
+export async function getGuidePage (countryAlias, cityAlias = '') {
+    let data = null;
+
+    if (cityAlias) {
+        data = await call(`${endpoints.guidePage}/${countryAlias}/${cityAlias}`);
+    } else {
+        data = await call(`${endpoints.guidePage}/${countryAlias}`);
+    }
 
     data.hot = parseTours(data.hot);
     data.qualityPrice = parseTours(data.qualityPrice);
