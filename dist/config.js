@@ -12,6 +12,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 var host = _jsCookie["default"].get('excursion-api-host') || 'https://new.otpusk.com/api';
 var endpoints = Object.freeze({
   toursMainPage: "".concat(host, "/tours/mainpage"),
+  hotToursMainPage: "".concat(host, "/tours/hotpage"),
+  tourTypesMainPage: "".concat(host, "/tours/tour_type"),
   countries: "".concat(host, "/tours/countries"),
   cities: "".concat(host, "/tours/cities"),
   tourType: "".concat(host, "/tours/tour_type"),

@@ -18,7 +18,9 @@ function _main() {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return (0, _index.getGuidePage)('italy');
+            return (0, _index.getTourTypeMainpage)({
+              type: 'friends'
+            });
 
           case 2:
             data = _context.sent;
