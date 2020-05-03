@@ -1,12 +1,12 @@
 import { endpoints } from '../config';
 import { call } from '../fn';
-import { formatLandingPage } from "../helpers";
+import { formatLandingPage, concatEndpointParameters } from "../helpers";
 
 const getMainpage = async (endpoint, props = {}) => {
     // props = { country, city, month, season, budget (required), currency (require) }
     const { country = '', city = '', ...other }  = props;
     const data = await call(
-        `${endpoint}/${[country, city].filter((_) => Boolean(_)).join('/')}`,
+        concatEndpointParameters(endpoint, country, city),
         { query: other }
     );
 

@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.escapeHtml = escapeHtml;
-exports.formatLandingPage = void 0;
+exports.concatEndpointParameters = exports.formatLandingPage = void 0;
 
 var _parsers = require("./parsers");
 
@@ -71,3 +71,15 @@ var formatLandingPage = function formatLandingPage(data) {
 };
 
 exports.formatLandingPage = formatLandingPage;
+
+var concatEndpointParameters = function concatEndpointParameters(endpoint) {
+  for (var _len = arguments.length, params = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    params[_key - 1] = arguments[_key];
+  }
+
+  return "".concat(endpoint, "/").concat(params.filter(function (param) {
+    return Boolean(param);
+  }).join('/'));
+};
+
+exports.concatEndpointParameters = concatEndpointParameters;

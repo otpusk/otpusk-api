@@ -1,11 +1,12 @@
 import {
     getHotToursMainpage,
     getGuidePage,
-    getTourTypeMainpage
+    getTourTypeMainpage,
+    getGuidePageMeta
 } from './index';
 
 async function main () {
-    const data = await getTourTypeMainpage({ type: 'friends' });
+    const data = await getGuidePageMeta('italy', 'rim');
 
     console.log(data);
 }

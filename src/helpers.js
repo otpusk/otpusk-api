@@ -45,3 +45,7 @@ export const formatLandingPage = (data) => {
 
     return data;
 };
+
+export const concatEndpointParameters  = (endpoint, ...params) => {
+    return `${endpoint}/${params.filter((param) => Boolean(param)).join('/')}`;
+};

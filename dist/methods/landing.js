@@ -41,9 +41,7 @@ var getMainpage = /*#__PURE__*/function () {
             // props = { country, city, month, season, budget (required), currency (require) }
             _props$country = props.country, country = _props$country === void 0 ? '' : _props$country, _props$city = props.city, city = _props$city === void 0 ? '' : _props$city, other = _objectWithoutProperties(props, ["country", "city"]);
             _context.next = 4;
-            return (0, _fn.call)("".concat(endpoint, "/").concat([country, city].filter(function (_) {
-              return Boolean(_);
-            }).join('/')), {
+            return (0, _fn.call)((0, _helpers.concatEndpointParameters)(endpoint, country, city), {
               query: other
             });
 
