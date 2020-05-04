@@ -101,3 +101,31 @@ export const parseSeasonsTours = (seasonsToursData = {}) => {
 
     return [];
 };
+
+export const parseDescription = (description = []) => {
+    if (description.length) {
+        return description.reduce((acc, el) => {
+            const { lang, title, text } = el;
+
+            acc[lang] = { title, text: escapeHtml(text) };
+
+            return acc;
+        }, { rus: null, ukr: null });
+    }
+
+    return { rus: null, ukr: null };
+};
+
+export const parseFaq = (faq = []) => {
+    if (faq.length) {
+        return faq.reduce((acc, el) => {
+            const { lang, title, text } = el;
+
+            acc[lang].push({ title, text: escapeHtml(text) });
+
+            return acc;
+        }, { rus: [], ukr: []});
+    }
+
+    return { rus: [], ukr: []};
+};

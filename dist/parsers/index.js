@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.parseSeasonsTours = exports.parseExcursions = exports.parseBestHotels = exports.parseCatalogueTours = exports.parseTours = exports.parseSportTours = void 0;
+exports.parseFaq = exports.parseDescription = exports.parseSeasonsTours = exports.parseExcursions = exports.parseBestHotels = exports.parseCatalogueTours = exports.parseTours = exports.parseSportTours = void 0;
 
 var _helpers = require("../helpers");
 
@@ -173,3 +173,57 @@ var parseSeasonsTours = function parseSeasonsTours() {
 };
 
 exports.parseSeasonsTours = parseSeasonsTours;
+
+var parseDescription = function parseDescription() {
+  var description = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+
+  if (description.length) {
+    return description.reduce(function (acc, el) {
+      var lang = el.lang,
+          title = el.title,
+          text = el.text;
+      acc[lang] = {
+        title: title,
+        text: (0, _helpers.escapeHtml)(text)
+      };
+      return acc;
+    }, {
+      rus: null,
+      ukr: null
+    });
+  }
+
+  return {
+    rus: null,
+    ukr: null
+  };
+};
+
+exports.parseDescription = parseDescription;
+
+var parseFaq = function parseFaq() {
+  var faq = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+
+  if (faq.length) {
+    return faq.reduce(function (acc, el) {
+      var lang = el.lang,
+          title = el.title,
+          text = el.text;
+      acc[lang].push({
+        title: title,
+        text: (0, _helpers.escapeHtml)(text)
+      });
+      return acc;
+    }, {
+      rus: [],
+      ukr: []
+    });
+  }
+
+  return {
+    rus: [],
+    ukr: []
+  };
+};
+
+exports.parseFaq = parseFaq;

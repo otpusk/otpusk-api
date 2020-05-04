@@ -18,13 +18,14 @@ function _main() {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return (0, _index.getGuidePageMeta)('italy', 'rim');
+            return (0, _index.getToursMainpage)({
+              country: 'spain'
+            });
 
           case 2:
             data = _context.sent;
-            console.log(data);
 
-          case 4:
+          case 3:
           case "end":
             return _context.stop();
         }

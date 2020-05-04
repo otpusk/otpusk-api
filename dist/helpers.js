@@ -67,6 +67,8 @@ var formatLandingPage = function formatLandingPage(data) {
   data.excursions = (0, _parsers.parseExcursions)(data.excursions);
   data.months_tours = (0, _parsers.parseSeasonsTours)(data.months_tours);
   data.seasons_tours = (0, _parsers.parseSeasonsTours)(data.seasons_tours);
+  data.description = (0, _parsers.parseDescription)(data.description);
+  data.faq = (0, _parsers.parseFaq)(data.faq);
   return data;
 };
 
