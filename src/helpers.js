@@ -11,10 +11,13 @@ import {
 } from './parsers';
 
 export function escapeHtml (unsafe) {
+    if (!unsafe) {
+        return null;
+    }
+
     const unsafeCharacters = [
-        { char: "\r\n", unicode: "\\r\\n" },
+        { char: "\r", unicode: "\\r" },
         { char: "\n", unicode: "\\n" },
-        { char: "\\\\", unicode: '' },
         { char: "&", unicode: "&amp;" },
         { char: '"', unicode: "&quot;" },
         { char: '“', unicode: "&quot;" },

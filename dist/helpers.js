@@ -9,15 +9,16 @@ exports.concatEndpointParameters = exports.formatLandingPage = void 0;
 var _parsers = require("./parsers");
 
 function escapeHtml(unsafe) {
+  if (!unsafe) {
+    return null;
+  }
+
   var unsafeCharacters = [{
-    "char": "\r\n",
-    unicode: "\\r\\n"
+    "char": "\r",
+    unicode: "\\r"
   }, {
     "char": "\n",
     unicode: "\\n"
-  }, {
-    "char": "\\\\",
-    unicode: ''
   }, {
     "char": "&",
     unicode: "&amp;"
