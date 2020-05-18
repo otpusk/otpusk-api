@@ -69,6 +69,7 @@ var formatLandingPage = function formatLandingPage(data) {
   data.seasons_tours = (0, _parsers.parseSeasonsTours)(data.seasons_tours);
   data.description = (0, _parsers.parseDescription)(data.description);
   data.faq = (0, _parsers.parseFaq)(data.faq);
+  data.weather = (0, _parsers.parseWeather)(data.weather);
   return data;
 };
 

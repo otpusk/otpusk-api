@@ -2,11 +2,12 @@ import {
     getHotToursMainpage,
     getToursMainpage,
     getTourTypeMainpage,
-    getGuidePageMeta
+    getGuidePageMeta,
+    getGuidePage
 } from './index';
 
 async function main () {
-    const data = await getToursMainpage({ country: 'spain' });
+    const data = await getGuidePage('egypt', 'hurgada');
 
     // console.log(data);
 }

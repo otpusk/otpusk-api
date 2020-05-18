@@ -3,9 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.parseFaq = exports.parseDescription = exports.parseSeasonsTours = exports.parseExcursions = exports.parseBestHotels = exports.parseCatalogueTours = exports.parseTours = exports.parseSportTours = void 0;
+exports.parseWeather = exports.parseFaq = exports.parseDescription = exports.parseSeasonsTours = exports.parseExcursions = exports.parseBestHotels = exports.parseCatalogueTours = exports.parseTours = exports.parseSportTours = void 0;
 
 var _helpers = require("../helpers");
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -227,3 +231,40 @@ var parseFaq = function parseFaq() {
 };
 
 exports.parseFaq = parseFaq;
+
+var parseWeather = function parseWeather() {
+  var weather = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+
+  if (weather.length) {
+    return weather.reduce(function (acc, el) {
+      var lang = el.lang,
+          months = _objectWithoutProperties(el, ["lang"]);
+
+      var formattedMonths = Object.entries(months).map(function (_ref10) {
+        var _ref11 = _slicedToArray(_ref10, 2),
+            month = _ref11[0],
+            description = _ref11[1];
+
+        return {
+          month: month,
+          description: (0, _helpers.escapeHtml)(description)
+        };
+      }).filter(function (_ref12) {
+        var description = _ref12.description;
+        return Boolean(description);
+      });
+      acc[lang] = formattedMonths;
+      return acc;
+    }, {
+      rus: [],
+      ukr: []
+    });
+  }
+
+  return {
+    rus: [],
+    ukr: []
+  };
+};
+
+exports.parseWeather = parseWeather;

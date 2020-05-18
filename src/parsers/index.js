@@ -129,3 +129,20 @@ export const parseFaq = (faq = []) => {
 
     return { rus: [], ukr: []};
 };
+
+export const parseWeather = (weather = []) => {
+    if (weather.length) {
+        return weather.reduce((acc, el) => {
+            const { lang, ...months } = el;
+            const formattedMonths = Object.entries(months)
+                .map(([month, description]) => ({ month, description: escapeHtml(description) }))
+                .filter(({ description }) => Boolean(description));
+
+            acc[lang] = formattedMonths;
+
+            return acc;
+        }, { rus: [], ukr: []});
+    }
+
+    return { rus: [], ukr: []};
+};

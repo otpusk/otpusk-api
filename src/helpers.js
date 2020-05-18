@@ -6,7 +6,8 @@ import {
     parseExcursions,
     parseSportTours,
     parseDescription,
-    parseFaq
+    parseFaq,
+    parseWeather
 } from './parsers';
 
 export function escapeHtml (unsafe) {
@@ -46,6 +47,7 @@ export const formatLandingPage = (data) => {
     data.seasons_tours = parseSeasonsTours(data.seasons_tours);
     data.description = parseDescription(data.description);
     data.faq = parseFaq(data.faq);
+    data.weather = parseWeather(data.weather);
 
     return data;
 };
