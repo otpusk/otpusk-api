@@ -11,10 +11,10 @@ var _parsers = require("./parsers");
 function escapeHtml(unsafe) {
   var unsafeCharacters = [{
     "char": "\r\n",
-    unicode: "<br />"
+    unicode: "\\r\\n"
   }, {
     "char": "\n",
-    unicode: "<br />"
+    unicode: "\\n"
   }, {
     "char": "\\\\",
     unicode: ''

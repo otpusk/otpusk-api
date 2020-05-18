@@ -12,8 +12,8 @@ import {
 
 export function escapeHtml (unsafe) {
     const unsafeCharacters = [
-        { char: "\r\n", unicode: "<br />" },
-        { char: "\n", unicode: "<br />" },
+        { char: "\r\n", unicode: "\\r\\n" },
+        { char: "\n", unicode: "\\n" },
         { char: "\\\\", unicode: '' },
         { char: "&", unicode: "&amp;" },
         { char: '"', unicode: "&quot;" },
