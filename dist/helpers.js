@@ -14,6 +14,9 @@ function escapeHtml(unsafe) {
   }
 
   var unsafeCharacters = [{
+    "char": "\r\n",
+    unicode: "\\r\\n"
+  }, {
     "char": "\r",
     unicode: "\\r"
   }, {
